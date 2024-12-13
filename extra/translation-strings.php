@@ -453,6 +453,10 @@ _x( 'Using Themes', 'Topics term name', 'wporg-learn' );
 _x( 'Using WordPress', 'Topics term name', 'wporg-learn' );
 /* translators: https://learn.wordpress.org/?wporg_workshop_topic=wordpress */
 _x( 'WordPress', 'Topics term name', 'wporg-learn' );
+/* translators: https://learn.wordpress.org/learning-pathway/designer/ */
+_x( 'Design with WordPress', 'Learning Pathways term name', 'wporg-learn' );
+/* translators: https://learn.wordpress.org/learning-pathway/designer/ */
+_x( 'Unlock the creative potential of Block themes.', 'Learning Pathways term description', 'wporg-learn' );
 /* translators: https://learn.wordpress.org/learning-pathway/developer/ */
 _x( 'Develop with WordPress', 'Learning Pathways term name', 'wporg-learn' );
 /* translators: https://learn.wordpress.org/learning-pathway/developer/ */
