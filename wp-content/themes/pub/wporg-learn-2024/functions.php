@@ -29,6 +29,7 @@ require_once __DIR__ . '/inc/template-helpers.php';
 /**
  * Actions and filters.
  */
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\enqueue_admin_assets' );
 add_action( 'after_setup_theme', __NAMESPACE__ . '\setup' );
 add_action( 'sensei_quiz_question_inside_after', __NAMESPACE__ . '\sensei_question_add_closing_fieldset' );
 // Attached at 50 to inject after title, description, etc, so that only answers are in the fieldset.
@@ -113,6 +114,20 @@ function setup() {
 
 	add_filter( 'mkaz_code_syntax_force_loading', '__return_true' );
 	add_filter( 'mkaz_prism_css_path', __NAMESPACE__ . '\update_prism_css_path' );
+}
+
+/**
+ * Enqueue scripts and styles.
+ */
+function enqueue_admin_assets() {
+	$style_path = get_stylesheet_directory() . '/build/style/index.css';
+	$style_uri = get_stylesheet_directory_uri() . '/build/style/index.css';
+	wp_enqueue_style(
+		'wporg-learn-2024-admin-style',
+		$style_uri,
+		array(),
+		filemtime( $style_path )
+	);
 }
 
 /**
@@ -347,6 +362,7 @@ function add_site_navigation_menus( $menus ) {
 		array(
 			'taxonomy'   => 'learning-pathway',
 			'hide_empty' => true,
+			'order'      => 'DESC',
 		)
 	);
 
@@ -413,6 +429,23 @@ function get_learning_pathway_level_content( $learning_pathway ) {
 				'title' => __( 'Advanced development concepts', 'wporg-learn' ),
 				'description' => __( 'You’re confident in the WordPress development environment or have already built your own plugin or theme.', 'wporg-learn' ),
 				'see_all_aria_label' => 'See all advanced development concepts learning pathways',
+			),
+		),
+		'designer' => array(
+			'beginner' => array(
+				'title' => __( 'Beginner WordPress design', 'wporg-learn' ),
+				'description' => __( 'You’re new to designing for the web or want to learn how to use the Site Editor to customize a theme.', 'wporg-learn' ),
+				'see_all_aria_label' => 'See all beginner WordPress design learning pathways',
+			),
+			'intermediate' => array(
+				'title' => __( 'Intermediate WordPress design', 'wporg-learn' ),
+				'description' => __( 'You’re comfortable with web design best practices and using the Site Editor’s design tools.', 'wporg-learn' ),
+				'see_all_aria_label' => 'See all intermediate WordPress design learning pathways',
+			),
+			'advanced' => array(
+				'title' => __( 'Advanced WordPress design', 'wporg-learn' ),
+				'description' => __( 'You’re confident with customizing a Block theme, creating patterns, and integrating plugins.', 'wporg-learn' ),
+				'see_all_aria_label' => 'See all advanced WordPress design learning pathways',
 			),
 		),
 	);

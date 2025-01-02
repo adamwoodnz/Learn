@@ -7,7 +7,7 @@ labels: Awaiting Triage, [Content] Experienced Author
 
 # Details
 
-- Content type (Online Workshop, Lesson, Course, Tutorial, or Lesson Plan):
+- Content type (Online Workshop, Lesson, Course, or Facilitator Notes):
 - Content title: 
 - Topic description: 
 - Audience (User, Developer, Designer, Contributor, etc.):
@@ -27,7 +27,6 @@ Under this comment, type two slashes (//) followed by the code that represents t
 - Online Workshop = online-workshop
 - Lesson = lesson
 - Course = course
-- Tutorial = tutorial
-- Lesson Plan = teach
+- Facilitator Notes = teach
 Once submitted, that code will add a new comment to the issue with the relevant development checklist.
 -->
